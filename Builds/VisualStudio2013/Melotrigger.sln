@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2013
+Project("{E9D6AD2D-5FC4-3F3D-A230-317998DE8199}") = "Melotrigger", "Melotrigger.vcxproj", "{AFB7587E-5217-1B59-8319-5580C345EB84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFB7587E-5217-1B59-8319-5580C345EB84}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AFB7587E-5217-1B59-8319-5580C345EB84}.Debug|Win32.Build.0 = Debug|Win32
+		{AFB7587E-5217-1B59-8319-5580C345EB84}.Release|Win32.ActiveCfg = Release|Win32
+		{AFB7587E-5217-1B59-8319-5580C345EB84}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
