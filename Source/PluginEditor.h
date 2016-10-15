@@ -1,9 +1,7 @@
 /*
   ==============================================================================
 
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin editor.
+    Melotrigger
 
   ==============================================================================
 */
@@ -18,7 +16,8 @@
 //==============================================================================
 /**
 */
-class MelotriggerAudioProcessorEditor  : public AudioProcessorEditor
+class MelotriggerAudioProcessorEditor  : public AudioProcessorEditor,
+                                         private Slider::Listener
 {
 public:
     MelotriggerAudioProcessorEditor (MelotriggerAudioProcessor&);
@@ -29,9 +28,15 @@ public:
     void resized() override;
 
 private:
+    void sliderValueChanged(Slider* slider) override;
+    
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
-    MelotriggerAudioProcessor& processor;
+    MelotriggerAudioProcessor& _processor;
+    
+    // Melotrigger members
+    DrawableText _midiInfoDisplay;
+    Slider _midiNoteOutSelector;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MelotriggerAudioProcessorEditor)
 };

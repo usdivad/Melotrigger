@@ -1,9 +1,7 @@
 /*
   ==============================================================================
 
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin processor.
+    Melotrigger
 
   ==============================================================================
 */
@@ -114,6 +112,8 @@ bool MelotriggerAudioProcessor::setPreferredBusArrangement (bool isInput, int bu
 
 void MelotriggerAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
+    // JUCE boilerplate
+    /*
     const int totalNumInputChannels  = getTotalNumInputChannels();
     const int totalNumOutputChannels = getTotalNumOutputChannels();
 
@@ -134,6 +134,33 @@ void MelotriggerAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
 
         // ..do something to the data...
     }
+    */
+    
+    // MIDI processing
+    buffer.clear();
+    MidiBuffer processedMidi;
+    int time;
+    MidiMessage m;
+    
+    for (MidiBuffer::Iterator i(midiMessages); i.getNextEvent(m, time);)
+    {
+        if (m.isNoteOn())
+        {
+            uint8 newNoteNum = (uint8)_noteOnNum;
+            m = MidiMessage::noteOn(m.getChannel(), newNoteNum, m.getVelocity());
+        }
+        else if (m.isNoteOff())
+        {}
+        else if (m.isAftertouch())
+        {}
+        else if (m.isPitchWheel())
+        {}
+        
+        processedMidi.addEvent(m, time);
+        printf("adding event at time %d\n", time);
+    }
+    
+    midiMessages.swapWith(processedMidi);
 }
 
 //==============================================================================

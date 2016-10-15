@@ -1,9 +1,7 @@
 /*
   ==============================================================================
 
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin processor.
+    Melotrigger
 
   ==============================================================================
 */
@@ -55,6 +53,9 @@ public:
     //==============================================================================
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+    
+    //Melotrigger members
+    float _noteOnNum;
 
 private:
     //==============================================================================
