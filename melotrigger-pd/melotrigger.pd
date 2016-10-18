@@ -1,4 +1,4 @@
-#N canvas 635 183 643 415 10;
+#N canvas 302 138 853 524 10;
 #X obj 181 49 notein;
 #X floatatom 137 91 5 0 0 2 note - -;
 #X floatatom 182 91 5 0 0 2 velocity - -;
@@ -22,6 +22,12 @@
 #X obj 230 202 spigot;
 #X obj 317 203 spigot;
 #X obj 317 173 &&;
+#X text 143 17 === Performance ===;
+#X text 672 30 === Data ===;
+#X obj 646 137 table modulator_notes;
+#X obj 647 112 table carrier_notes;
+#X msg 647 75 \; carrier_notes 0 60 62 64 66;
+#X text 645 53 carrier/modulator mapping;
 #X connect 0 0 1 0;
 #X connect 0 1 2 0;
 #X connect 0 2 3 0;
