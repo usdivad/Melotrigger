@@ -1,4 +1,4 @@
-#N canvas 302 138 1033 527 10;
+#N canvas 302 138 1041 635 10;
 #X obj 181 49 notein;
 #X floatatom 137 91 5 0 0 2 note - -;
 #X floatatom 182 91 5 0 0 2 velocity - -;
@@ -18,37 +18,47 @@
 #X obj 757 112 table carrier_notes;
 #X msg 757 75 \; carrier_notes 0 60 62 64 66;
 #X text 755 53 carrier/modulator mapping;
-#X floatatom 331 263 5 0 0 0 - - -;
+#X floatatom 328 275 5 0 0 0 - - -;
 #X obj 237 211 unpack 0 0;
-#X obj 294 242 moses 1;
-#X floatatom 282 264 5 0 0 0 - - -;
-#X obj 302 284 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 291 254 moses 1;
+#X floatatom 279 276 5 0 0 0 - - -;
+#X obj 296 301 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 353 285 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 350 297 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 284 332 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-74;
-#X text 157 324 start recording on;
-#X text 159 336 noteOn \, and stop on;
-#X text 158 351 noteOff;
+#X obj 285 327 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 153 271 start recording on;
+#X text 155 283 noteOn \, and stop on;
+#X text 154 298 noteOff;
 #X obj 327 172 spigot;
 #X obj 351 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 697 22 loadbang;
 #X msg 605 110 0;
 #X obj 605 137 send modulator_note_idx;
-#X obj 394 227 receive modulator_note_idx;
-#X floatatom 432 258 5 0 0 0 - - -;
-#X obj 391 459 send modulator_note_idx;
-#X obj 394 348 spigot;
-#X obj 444 297 + 1;
-#X obj 461 404 tabwrite modulator_notes;
-#X obj 392 370 unpack 0 0;
-#X obj 386 323 pack 0 0;
-#X msg 516 321 \; modulator_notes const 0;
-#X obj 502 292 spigot;
-#X obj 502 265 == 0;
-#X text 554 282 this behavior is still a little buggy;
+#X obj 441 205 receive modulator_note_idx;
+#X floatatom 443 231 5 0 0 0 - - -;
+#X obj 269 510 send modulator_note_idx;
+#X obj 272 399 spigot;
+#X obj 462 306 + 1;
+#X obj 317 457 tabwrite modulator_notes;
+#X obj 270 421 unpack 0 0;
+#X obj 387 323 pack 0 0;
+#X obj 520 310 spigot;
+#X msg 616 396 \; modulator_notes const 0;
+#X obj 483 255 t f f;
+#X obj 520 284 == -1;
+#X obj 408 301 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 438 295 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 225 428 -1;
+#X obj 415 271 moses 0;
+#X text 172 212 note \, vel;
+#X text 581 226 incrementing/resetting the idx;
+#X text 91 414 oh this should maybe decrement it instead;
+#X obj 520 386 spigot;
 #X connect 0 0 1 0;
 #X connect 0 1 2 0;
 #X connect 0 2 3 0;
@@ -71,19 +81,25 @@
 #X connect 21 1 19 0;
 #X connect 22 0 23 0;
 #X connect 22 0 25 0;
-#X connect 22 0 36 0;
+#X connect 22 0 48 0;
+#X connect 25 0 53 1;
 #X connect 29 0 30 0;
 #X connect 31 0 17 0;
 #X connect 31 0 32 0;
 #X connect 32 0 33 0;
 #X connect 34 0 35 0;
-#X connect 35 0 38 0;
 #X connect 35 0 44 0;
 #X connect 37 0 40 0;
 #X connect 38 0 41 1;
 #X connect 40 1 39 1;
 #X connect 40 1 36 0;
 #X connect 41 0 37 0;
-#X connect 43 0 42 0;
-#X connect 44 0 43 0;
-#X connect 44 0 43 1;
+#X connect 42 0 53 0;
+#X connect 44 0 38 0;
+#X connect 44 1 45 0;
+#X connect 45 0 42 0;
+#X connect 45 0 42 1;
+#X connect 48 0 36 0;
+#X connect 49 0 46 0;
+#X connect 49 1 47 0;
+#X connect 53 0 43 0;
