@@ -19,7 +19,7 @@
 #X obj 218 256 moses 1;
 #X floatatom 206 278 5 0 0 0 - - -;
 #X obj 234 308 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-69;
+65;
 #X text 35 285 start recording on;
 #X obj 272 181 spigot;
 #X obj 603 35 loadbang;
@@ -59,8 +59,8 @@
 #X obj 604 507 f \$0;
 #X msg 603 533 \; \$1-modulator_notes const 0;
 #X obj 879 211 unpack 0 0;
-#X obj 960 240 moses 1;
-#X obj 895 269 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 957 230 moses 1;
+#X obj 897 255 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X text 818 212 note \, vel;
 #X obj 532 130 send \$0-modulator_notes_size;
@@ -115,6 +115,7 @@
 #X text 1221 332 turn all notes off;
 #X text 1221 344 when new chord triggered;
 #X text 1079 38 testing ctrl out;
+#X obj 853 280 t b b;
 #X connect 0 0 1 0;
 #X connect 0 1 2 0;
 #X connect 0 2 3 0;
@@ -167,8 +168,7 @@
 #X connect 56 1 57 0;
 #X connect 57 1 58 0;
 #X connect 57 1 71 0;
-#X connect 58 0 62 0;
-#X connect 58 0 102 0;
+#X connect 58 0 107 0;
 #X connect 62 0 67 0;
 #X connect 63 0 65 0;
 #X connect 65 0 62 1;
@@ -205,3 +205,5 @@
 #X connect 101 0 102 1;
 #X connect 102 0 103 0;
 #X connect 103 0 94 0;
+#X connect 107 0 62 0;
+#X connect 107 1 102 0;
